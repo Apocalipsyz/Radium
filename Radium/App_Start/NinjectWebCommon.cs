@@ -10,6 +10,9 @@ namespace Radium.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using Radium.Global.Repository;
+    using Radium.Global.Auth;
+    using Radium.DBModel;
 
     public static class NinjectWebCommon 
     {
@@ -53,6 +56,10 @@ namespace Radium.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IUserRepository>().To<RadiumDBEntities>();
+            kernel.Bind<IRoleRepository>().To<RadiumDBEntities>();
+            kernel.Bind<IUserRoleRepository>().To<RadiumDBEntities>();
+            kernel.Bind<IAuthentication>().To<RadiumAuthentication>().InRequestScope();
         }        
     }
 }
