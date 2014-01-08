@@ -38,6 +38,7 @@
     <Property Name="ActivationLink" Type="nvarchar" Nullable="true" MaxLength="150" />
     <Property Name="LastVisitDate" Type="datetime" Nullable="true" />
     <Property Name="AvatarPath" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="150" />
   </EntityType>
   <EntityType Name="UserRole">
     <Key>
@@ -46,8 +47,6 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="RoleId" Type="int" Nullable="false" />
-    <Property Name="Role_Id" Type="int" Nullable="false" />
-    <Property Name="User_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="UserRoleRole">
     <End Role="UserRole" Type="RadiumDBModel.Store.UserRole" Multiplicity="*" />
@@ -59,7 +58,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="UserRole">
-        <PropertyRef Name="Role_Id" />
+        <PropertyRef Name="RoleId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -73,7 +72,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="UserRole">
-        <PropertyRef Name="User_Id" />
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -103,6 +102,7 @@
           <Property Name="LastVisitDate" Type="DateTime" Precision="3" />
           <Property Name="AvatarPath" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="UserRole" Relationship="RadiumDBModel.UserRoleUser" FromRole="User" ToRole="UserRole" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -132,12 +132,28 @@
           <End Type="RadiumDBModel.Role" Role="Role" Multiplicity="1" >
             <OnDelete Action="Cascade" />
           </End>
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="UserRoleUser">
           <End Type="RadiumDBModel.UserRole" Role="UserRole" Multiplicity="*" />
           <End Type="RadiumDBModel.User" Role="User" Multiplicity="1" >
             <OnDelete Action="Cascade" />
           </End>
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -165,6 +181,7 @@
           <ScalarProperty Name="ActivationLink" ColumnName="ActivationLink" />
           <ScalarProperty Name="LastVisitDate" ColumnName="LastVisitDate" />
           <ScalarProperty Name="AvatarPath" ColumnName="AvatarPath" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -177,22 +194,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="UserRoleRole" TypeName="RadiumDBModel.UserRoleRole" StoreEntitySet="UserRole">
-      <EndProperty Name="Role">
-        <ScalarProperty Name="Id" ColumnName="Role_Id" />
-      </EndProperty>
-      <EndProperty Name="UserRole">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="UserRoleUser" TypeName="RadiumDBModel.UserRoleUser" StoreEntitySet="UserRole">
-      <EndProperty Name="User">
-        <ScalarProperty Name="Id" ColumnName="User_Id" />
-      </EndProperty>
-      <EndProperty Name="UserRole">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

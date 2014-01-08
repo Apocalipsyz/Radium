@@ -27,6 +27,7 @@ namespace Radium.DBModel
         public string ActivationLink { get; set; }
         public Nullable<System.DateTime> LastVisitDate { get; set; }
         public string AvatarPath { get; set; }
+        public string Username { get; set; }
     
         public virtual ICollection<UserRole> UserRole { get; set; }
     }

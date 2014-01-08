@@ -172,6 +172,7 @@
     <Compile Include="Global\Auth\AuthHttpModule.cs" />
     <Compile Include="Global\Auth\IAuthentication.cs" />
     <Compile Include="Global\Auth\RadiumAuthentication.cs" />
+    <Compile Include="Global\Auth\RadiumAuthorizeAttribute.cs" />
     <Compile Include="Global\Provider\IUserProvider.cs" />
     <Compile Include="Global\Provider\UserIndentity.cs" />
     <Compile Include="Global\Provider\UserProvider.cs" />

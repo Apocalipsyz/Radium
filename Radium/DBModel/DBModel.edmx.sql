@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/08/2014 12:43:47
--- Generated from EDMX file: d:\Radium\Radium\Radium\DBModel\DBModel.edmx
+-- Date Created: 01/08/2014 13:11:26
+-- Generated from EDMX file: D:\Radium\Radium\Radium\DBModel\DBModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,12 +17,6 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_UserRoleRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UserRole] DROP CONSTRAINT [FK_UserRoleRole];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UserRoleUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UserRole] DROP CONSTRAINT [FK_UserRoleUser];
-GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -59,7 +53,8 @@ CREATE TABLE [dbo].[User] (
     [ActivationDate] datetime  NULL,
     [ActivationLink] nvarchar(150)  NULL,
     [LastVisitDate] datetime  NULL,
-    [AvatarPath] nvarchar(150)  NULL
+    [AvatarPath] nvarchar(150)  NULL,
+    [Username] nvarchar(150)  NOT NULL
 );
 GO
 
@@ -67,9 +62,7 @@ GO
 CREATE TABLE [dbo].[UserRole] (
     [Id] int  NOT NULL,
     [UserId] int  NOT NULL,
-    [RoleId] int  NOT NULL,
-    [Role_Id] int  NOT NULL,
-    [User_Id] int  NOT NULL
+    [RoleId] int  NOT NULL
 );
 GO
 
@@ -99,10 +92,10 @@ GO
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [Role_Id] in table 'UserRole'
+-- Creating foreign key on [RoleId] in table 'UserRole'
 ALTER TABLE [dbo].[UserRole]
 ADD CONSTRAINT [FK_UserRoleRole]
-    FOREIGN KEY ([Role_Id])
+    FOREIGN KEY ([RoleId])
     REFERENCES [dbo].[Role]
         ([Id])
     ON DELETE CASCADE ON UPDATE NO ACTION;
@@ -110,13 +103,13 @@ ADD CONSTRAINT [FK_UserRoleRole]
 -- Creating non-clustered index for FOREIGN KEY 'FK_UserRoleRole'
 CREATE INDEX [IX_FK_UserRoleRole]
 ON [dbo].[UserRole]
-    ([Role_Id]);
+    ([RoleId]);
 GO
 
--- Creating foreign key on [User_Id] in table 'UserRole'
+-- Creating foreign key on [UserId] in table 'UserRole'
 ALTER TABLE [dbo].[UserRole]
 ADD CONSTRAINT [FK_UserRoleUser]
-    FOREIGN KEY ([User_Id])
+    FOREIGN KEY ([UserId])
     REFERENCES [dbo].[User]
         ([Id])
     ON DELETE CASCADE ON UPDATE NO ACTION;
@@ -124,7 +117,7 @@ ADD CONSTRAINT [FK_UserRoleUser]
 -- Creating non-clustered index for FOREIGN KEY 'FK_UserRoleUser'
 CREATE INDEX [IX_FK_UserRoleUser]
 ON [dbo].[UserRole]
-    ([User_Id]);
+    ([UserId]);
 GO
 
 -- --------------------------------------------------

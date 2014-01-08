@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Radium.Global.Auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,11 @@ namespace Radium.Controllers
         // GET: /Home/
 
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Log()
         {
             return View();
         }
