@@ -4,7 +4,6 @@
 
 body {
   padding-bottom: 40px;
-  color: #5a5a5a;
 }
 
 /* CUSTOMIZE THE NAVBAR
@@ -17,6 +16,7 @@ body {
   left: 0;
   right: 0;
   z-index: 20;
+  color: #5a5a5a;
 }
 
 /* Flip around the padding for proper display in narrow viewports */
@@ -83,4 +83,49 @@ body {
   .featurette-heading {
     margin-top: 120px;
   }
+}
+
+
+/* Registration 
+    -----------*/
+
+.jumb-marg {
+    margin-top: 100px;
+    height: 350px;
+}
+
+.cont-left {
+    width: 60%;
+    float:left;
+}
+
+.cont-right {
+    float:right;
+    width: 39%;
+}
+
+.form-marg {
+    margin-left: 88px;
+}
+
+.h1-help {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Sign In
+   ------------- */
+
+.jumb-width {
+    width: 500px;
+    margin: 100px auto;
+}
+
+.input-center {
+    float: none;
+    margin: 0 auto;
+}
+
+.btn-width {
+    text-align:center;
 }

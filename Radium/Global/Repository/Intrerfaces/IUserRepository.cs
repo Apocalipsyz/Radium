@@ -16,10 +16,10 @@ namespace Radium.Global.Repository
 
         bool UpdateUser(User instance);
 
-        bool RemoveUser(int idUser);
+        bool RemoveUser(string username);
 
-        User GetUser(string email);
+        User GetUser(string username);
 
-        User Login(string email, string password);
+        User Login(string username, string password);
     }
 }

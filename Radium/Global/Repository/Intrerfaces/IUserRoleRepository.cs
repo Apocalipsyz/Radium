@@ -16,6 +16,6 @@ namespace Radium.Global.Repository
 
         bool UpdateUserRole(UserRole instance);
 
-        bool RemoveUserRole(int idUserRole);
+        bool RemoveUserRole(int userRoleId);
     }
 }

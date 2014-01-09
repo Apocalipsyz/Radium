@@ -24,18 +24,15 @@ namespace Radium.DBModel
             repository = DependencyResolver.Current.GetService<IUserRoleRepository>();
 
             if (string.IsNullOrWhiteSpace(roles))
-            {
                 return false;
-            }
 
             var rolesArray = roles.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var role in rolesArray)
             {
                 var hasRole = repository.UserRoles.Any(p => string.Compare(p.Role.Code, role, true) == 0);
                 if (hasRole)
-                {
                     return true;
-                }
+
             }
             return false;
         }

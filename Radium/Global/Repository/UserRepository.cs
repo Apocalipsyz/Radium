@@ -20,6 +20,11 @@ namespace Radium.DBModel
 
         public bool CreateUser(User instance)
         {
+            if (User.Any(x => x.Username == instance.Username))
+                return false;
+
+            User.Add(instance);
+            SaveChanges();
             return true;
         }
 
@@ -28,19 +33,23 @@ namespace Radium.DBModel
             return true;
         }
 
-        public bool RemoveUser(int idUser)
+        public bool RemoveUser(string username)
         {
+            if (!User.Any(x => x.Username == username))
+                return false;
+
+            User.Remove(User.Where(x => x.Username == username).First());
             return true;
         }
 
-        public User GetUser(string email)
+        public User GetUser(string username)
         {
-            throw new NotImplementedException();
+            return User.FirstOrDefault(p => string.Compare(p.Username, username, true) == 0);
         }
 
-        public User Login(string email, string password)
+        public User Login(string username, string password)
         {
-            throw new NotImplementedException();
+            return User.FirstOrDefault(p => string.Compare(p.Username, username, true) == 0 && p.Password == password);
         }
     }
 }

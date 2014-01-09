@@ -20,7 +20,11 @@ namespace Radium.DBModel
 
         public bool CreateUserRole(UserRole instance)
         {
-            throw new NotImplementedException();
+            if (UserRole.Any(x => x.RoleId == instance.RoleId && x.UserId == instance.UserId))
+                return false;
+
+            UserRole.Add(instance);
+            return true;
         }
 
         public bool UpdateUserRole(UserRole instance)
@@ -28,9 +32,13 @@ namespace Radium.DBModel
             throw new NotImplementedException();
         }
 
-        public bool RemoveUserRole(int idUserRole)
+        public bool RemoveUserRole(int userRoleId)
         {
-            throw new NotImplementedException();
+            if (!UserRole.Any(x => x.Id == userRoleId))
+                return false;
+
+            UserRole.Remove(UserRole.FirstOrDefault(x => x.Id == userRoleId));
+            return true;
         }
     }
 }
