@@ -4,6 +4,9 @@
 
 body {
   padding-bottom: 40px;
+  font: 15px 'Open Sans', sans-serif;
+  background: #f7f8fa;
+
 }
 
 /* CUSTOMIZE THE NAVBAR
@@ -17,6 +20,11 @@ body {
   right: 0;
   z-index: 20;
   color: #5a5a5a;
+}
+
+.navbar-inverse {
+    background-color: #313338;
+    border-color: #191a1d;
 }
 
 /* Flip around the padding for proper display in narrow viewports */
@@ -116,16 +124,87 @@ body {
 /* Sign In
    ------------- */
 
-.jumb-width {
-    width: 500px;
-    margin: 100px auto;
-}
-
-.input-center {
+.loginBox {
+    width: 30.5%;
+    margin: 150px auto;
+    background-color: white;
+    border: 1px solid #CCC;
+    border-radius: 4px 4px 4px 4px;
     float: none;
-    margin: 0 auto;
+    padding-bottom: 26px;
+    margin-bottom: 25px;
+    box-shadow: 0px 0px 10px 0px #DDD;
 }
 
-.btn-width {
-    text-align:center;
+.head {
+    background-color: #F4F4F4;
+    border-bottom: 1px solid #D6D6D6;
+    border-radius: 4px 4px 1px 0;
+    display: inline-block;
+    margin-bottom: 37px;
+    padding: 25px 0 25px;
+    text-align: center;
+    width: 100%;
+}
+
+.login {
+    margin: 0 auto;
+    text-align: center;
+    width: 83%;
+}
+
+.login-left {
+    float: left;
+    width: 45%;
+}
+
+.login-right {
+    float: right;
+}
+
+.remember {
+    margin-top: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.remember .left input[type="checkbox"] {
+    float: left;
+}
+
+.login h4 {
+    font-weight: normal;
+    color: #373D44;
+    font-size: 21px;
+    margin: 0px;
+}
+
+.remember .right a {
+    color: #428bca;
+    float: right;
+    line-height: 16px;
+    margin: 3px 0 2px 0;
+}
+
+.remember .left label {
+    color: #6B727C;
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 16px;
+    margin: 3px 0 0 7px;
+    cursor: pointer;
+}
+
+.btn-login {
+    margin-top: 30px;
+}
+
+.input-login {
+    margin-bottom: 16px;
+}
+
+p.already {
+    text-align: center;
+    color: #454B52;
 }
