@@ -25,10 +25,15 @@ namespace Radium
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap/bootstrap.css",
+                        "~/Content/style1.css",
+                        "~/Content/font-awesome.css",
                         "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/Scripts/bootstrap").Include(
                        "~/Scripts/bootstrap/bootstrap.js"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/custom").Include(
+                       "~/Scripts/custom/main.js"));
         }
     }
 }
