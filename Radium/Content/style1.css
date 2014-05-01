@@ -81,13 +81,13 @@ body {
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0 0 15px;
-  font-weight: 300; }
+  font-weight: 400; }
 
 h3 {
   line-height: 1.4em; }
 
 p.lead {
-  font-weight: 300; }
+  font-weight: 400; }
 
 strong {
   font-weight: 700; }
@@ -185,33 +185,19 @@ dl {
         display: block;
         margin-bottom: 4px; }
 
-    .navbar .container-fluid.top-bar .logo {
-      background: url("../images/se7en-logo.png") no-repeat 0 0;
-      width: 54px;
-      height: 16px;
-      float: left;
-      text-indent: -9999em;
-      margin: 14px 10px 0 0; }
-
-      @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
-
-        .navbar .container-fluid.top-bar .logo {
-          background-image: url("../images/se7en-logo@2x.png");
-          background-size: 54px 16px; } }
-
     .navbar .container-fluid.top-bar form {
       margin-top: 6px; }
       .navbar .container-fluid.top-bar form .form-control {
         height: 30px;
         border-color: #e6e6e6;
         box-shadow: none;
-        background: white url("../images/icon-search.png") no-repeat center left;
+        background: white url("Images/icon-search.png") no-repeat center left;
         padding-left: 24px;
         margin-top: 1px;
         width: 200px; }
         @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
           .navbar .container-fluid.top-bar form .form-control {
-            background-image: url("../images/fasearch@2x.png");
+            background-image: url("Images/icon-search.png");
             background-size: 18px 12px; } }
         .navbar .container-fluid.top-bar form .form-control:focus {
           border-color: #007aff; }
@@ -313,7 +299,7 @@ dl {
             height: 100%;
             text-align: center;
             padding: 10px 15px 9px;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 400;
             color: #999999;
             -webkit-transition: all 0.3s;
@@ -353,7 +339,7 @@ dl {
 /*  Buttons */
 /*----------------------------------------------------------------------------------- */
 .btn {
-  font-weight: 300;
+  font-weight: normal;
   margin: 0 5px 5px 0;
   -webkit-transition: all 0.15s;
   -moz-transition: all 0.15s;
@@ -603,7 +589,7 @@ dl {
 .label {
   font-size: 85%;
   line-height: 1.4;
-  font-weight: 300;
+  font-weight: 400;
   border-radius: 0px;
   margin: 0 5px;
   display: inline-block; }
@@ -615,7 +601,113 @@ dl {
   .label-container h3 {
     margin-bottom: 25px; }
   .label-container .label {
-    font-weight: 300; }
+    font-weight: 400; }
 
 .label-primary {
   background-color: #007aff; }
+
+/*----------------------------------------------------------------------------------- */
+/*  Form styles */
+/*----------------------------------------------------------------------------------- */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+label {
+  font-weight: normal; }
+  label.error {
+    color: #d9534f;
+    margin-top: 5px; }
+
+input[type="text"] {
+  box-shadow: none !important; }
+
+.form-horizontal .form-group {
+  margin-left: 0;
+  margin-right: 0; }
+
+.form-control {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s; }
+  .form-control:focus {
+    border-color: #007aff;
+    box-shadow: none; }
+  .form-control.has-error, .form-control.error {
+    border-color: #d9534f; }
+
+.form-group [class^="col-"], .form-group [class*="col-"] {
+  margin-bottom: 0; }
+.form-group label {
+  margin-bottom: 5px; }
+
+.input-group-btn > .btn {
+  margin-left: -1px; }
+  .input-group-btn > .btn + .btn {
+    margin-left: -1px; }
+
+.opacity .radio, .opacity .checkbox {
+  margin: 0 0 10px; }
+.opacity .radio-inline, .opacity .checkbox-inline {
+  padding-top: 9px;
+  margin-right: 20px; }
+  .opacity .radio-inline + .radio-inline, .opacity .radio-inline + .checkbox-inline, .opacity .checkbox-inline + .radio-inline, .opacity .checkbox-inline + .checkbox-inline {
+    margin-left: 0; }
+.opacity input[type="checkbox"], .opacity input[type="radio"] {
+  display: none; }
+  .opacity input[type="checkbox"] + span:before, .opacity input[type="radio"] + span:before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-left: -20px;
+    background: white;
+    border-radius: 3px;
+    border: 1px solid #c8c8c8; }
+.opacity input[type="checkbox"]:checked + span:before {
+  background: #007aff url("Images/checkmark.png") no-repeat center center;
+  border-color: #007aff; }
+  @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
+    .opacity input[type="checkbox"]:checked + span:before {
+      background-image: url("Images/checkmark.png");
+      background-size: 14px 14px; } }
+.opacity input[type="radio"] {
+  display: none; }
+  .opacity input[type="radio"] + span {
+    position: relative; }
+    .opacity input[type="radio"] + span:before {
+      border-radius: 50%; }
+  .opacity input[type="radio"]:checked + span:after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 6px;
+    left: -15px;
+    background-color: #007aff;
+    border-radius: 50%;
+    display: block; }
+
+.has-warning .help-block, .has-warning .control-label {
+  color: #f0ad4e; }
+.has-warning .form-control {
+  border-color: #f0ad4e; }
+
+.has-error .help-block, .has-error .control-label {
+  color: #d9534f; }
+.has-error .form-control {
+  border-color: #d9534f; }
+
+.has-success .help-block, .has-success .control-label {
+  color: #60c560; }
+.has-success .form-control {
+  border-color: #60c560; }
+
+.radio + .radio:last-child, .checkbox + .checkbox:last-child {
+  margin-bottom: 0; }
+
+.form-photo {
+  margin: 4px 0 12px; }
