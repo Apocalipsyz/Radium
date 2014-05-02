@@ -27,7 +27,6 @@ namespace Radium
                         "~/Content/bootstrap/bootstrap.css",
                         "~/Content/style1.css",
                         "~/Content/font-awesome.css",
-                        "~/Content/font-lato.css",
                         "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/Scripts/bootstrap").Include(
