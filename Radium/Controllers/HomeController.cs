@@ -22,5 +22,9 @@ namespace Radium.Controllers
             return View();
         }
 
+        public ActionResult SignInNavPartial()
+        {
+            return PartialView();
+        }
     }
 }
